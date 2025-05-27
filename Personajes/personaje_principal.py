@@ -1,13 +1,16 @@
 
+
 from .hechicero import Hechicero, Hechizo
 
 class PersonajePrincipal(Hechicero):
     def __init__(self, nombre="Invocador"):
         super().__init__(nombre, salud=130, mana=100, ataque=25, defensa=12)
-        self.aprender_hechizo(Hechizo("Rayo Arcano", 20, 30))     # Daño básico
-        self.aprender_hechizo(Hechizo("Golpe de Luz", 25, 35))    # Daño más fuerte
-        self.aprender_hechizo(Hechizo("Curación Rápida", 15, -25))  # Curación (daño negativo)
-        self.aprender_hechizo(Hechizo("Escudo Arcano", 10, 0))    # Defensa
+
+        self.aprender_hechizo(Hechizo("Rayo Arcano", 20, 30))         # Daño básico
+        self.aprender_hechizo(Hechizo("Golpe de Luz", 25, 35))        # Daño más fuerte
+        self.aprender_hechizo(Hechizo("Curación Rápida", 15, -25))    # Curación (daño negativo)
+        self.aprender_hechizo(Hechizo("Escudo Arcano", 10, 0))        # Defensa
+
         self.escudo_activado = False
 
     def usar_hechizo_especial(self, nombre_hechizo, objetivo):
