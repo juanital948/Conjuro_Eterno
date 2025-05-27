@@ -141,10 +141,13 @@ class JuegoInterfaz:
                 self.enemigo = self.enemigos[self.nivel]
                 self.jugador.restaurar_estado()
                 self.jugador.salud = min(self.jugador.salud + 40, 130)
-                self.jugador.mana += 30
+                self.jugador.mana = min(self.jugador.mana + 30, 100)
                 self.log(f"\n--- Nivel {self.nivel + 1}: {self.enemigo.nombre} ---")
             else:
                 self.log("\n🎉 ¡Has ganado todos los combates!")
+
+        if not self.jugador.esta_vivo():
+            self.log("Has sido derrotado.\n")
 
         self.actualizar_estado()
 
