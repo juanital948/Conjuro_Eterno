@@ -47,6 +47,14 @@ class JuegoInterfaz:
         self.crear_layout()
         self.actualizar_estado()
 
+    def recargar_mana(self):
+            if self.jugador.mana < 100:
+                self.jugador.mana = min(100, self.jugador.mana + 100)
+                self.log(f"{self.jugador.nombre} recarga 100 puntos de maná.")
+                self.actualizar_estado()
+            else:
+                self.log(f"{self.jugador.nombre} ya tiene el maná lleno.")
+
     def crear_layout(self):
         self.frame_enemigo = tk.Frame(self.root, bg="#d1ecf1", height=200)
         self.frame_enemigo.pack(fill=tk.X, side=tk.TOP)
@@ -103,6 +111,17 @@ class JuegoInterfaz:
         self.boton_reiniciar = tk.Button(self.root, text="🔄 Reiniciar Partida", font=("Helvetica", 12), bg="#ffcccc", fg="#660000", command=self.reiniciar_partida)
         self.boton_reiniciar.pack(pady=5)
         self.log("🎮 ¡Bienvenido a Conjuro Eterno! Prepara tus hechizos...\n")
+
+        boton_recargar = tk.Button(
+            self.frame_jugador,
+            text="Recargar Maná",
+            width=15,
+            height=2,
+            font=("Arial", 12),
+            bg="#88ccff",
+            command=self.recargar_mana
+        )
+        boton_recargar.pack(pady=5)
 
     def usar_hechizo(self, nombre):
         if not self.jugador.esta_vivo():
