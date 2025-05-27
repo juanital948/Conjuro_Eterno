@@ -1,5 +1,4 @@
 
-
 from .hechicero import Hechicero, Hechizo
 
 class PersonajePrincipal(Hechicero):

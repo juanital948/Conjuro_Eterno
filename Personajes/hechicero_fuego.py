@@ -1,5 +1,4 @@
 
-
 from .hechicero import Hechicero, Hechizo
 import random
 
